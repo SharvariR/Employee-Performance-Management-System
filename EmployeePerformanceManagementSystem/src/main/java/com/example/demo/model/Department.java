@@ -2,15 +2,11 @@ package com.example.demo.model;
 
 import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Department {
@@ -21,11 +17,27 @@ public class Department {
 	    private String name;
 	    private Double budget;
 
-	    @OneToMany(mappedBy = "department")
-	    private Set<Employee> employees;
+		public Long getId() {
+			return id;
+		}
 
-	    @OneToMany(mappedBy = "department")
-	    private Set<Project> projects;
+		public void setId(Long id) {
+			this.id = id;
+		}
 
-	    // Getters and Setters
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public Double getBudget() {
+			return budget;
+		}
+
+		public void setBudget(Double budget) {
+			this.budget = budget;
+		}
 }

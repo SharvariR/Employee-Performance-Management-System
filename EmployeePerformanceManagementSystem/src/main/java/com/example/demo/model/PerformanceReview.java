@@ -2,12 +2,16 @@ package com.example.demo.model;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class PerformanceReview {
@@ -15,12 +19,48 @@ public class PerformanceReview {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+	
+	@ManyToOne
+	@JoinColumn(name = "employee_id") 
+	@JsonBackReference
+	private Employee employee;
+	 
     private Date reviewDate;
     private Integer score;
     private String reviewComments;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    // Getters and Setters
+
+	public Employee getEmployee() 
+	{ 
+		return employee; 
+	} 
+
+	public void setEmployee(Employee employee) { 
+		this.employee = employee; 
+	}
+	 
+	public Date getReviewDate() {
+		return reviewDate;
+	}
+	public void setReviewDate(Date reviewDate) {
+		this.reviewDate = reviewDate;
+	}
+	public Integer getScore() {
+		return score;
+	}
+	public void setScore(Integer score) {
+		this.score = score;
+	}
+	public String getReviewComments() {
+		return reviewComments;
+	}
+	public void setReviewComments(String reviewComments) {
+		this.reviewComments = reviewComments;
+	}
 }

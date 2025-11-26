@@ -1,17 +1,20 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Id;
 
 import java.util.Date;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Employee {
@@ -32,10 +35,81 @@ public class Employee {
 	private Employee manager;
 
 	@OneToMany(mappedBy = "employee")
+	@JsonManagedReference
 	private Set<PerformanceReview> performanceReviews;
 
 	@ManyToMany(mappedBy = "employees")
+	@JsonManagedReference
 	private Set<Project> projects;
+	public Long getId() {
+		return id;
+	}
 
-	// Getters and Setters
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Date getDateOfJoining() {
+		return dateOfJoining;
+	}
+
+	public void setDateOfJoining(Date dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+
+	public Employee getManager() {
+		return manager;
+	}
+
+	public void setManager(Employee manager) {
+		this.manager = manager;
+	}
+
+	public Set<PerformanceReview> getPerformanceReviews() {
+		return performanceReviews;
+	}
+
+	public void setPerformanceReviews(Set<PerformanceReview> performanceReviews) {
+		this.performanceReviews = performanceReviews;
+	}
+
+	public Set<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
+	}
 }
