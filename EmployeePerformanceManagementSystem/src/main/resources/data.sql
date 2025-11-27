@@ -12,6 +12,10 @@ INSERT INTO employee (id, name, email, department_id, date_of_joining, salary, m
 INSERT INTO performance_review (id, employee_id, review_date, score, review_comments) VALUES (1, 1, '2021-06-01', 9, 'Excellent performance');
 INSERT INTO performance_review (id, employee_id, review_date, score, review_comments) VALUES (2, 2, '2021-06-01', 8, 'Good performance');
 INSERT INTO performance_review (id, employee_id, review_date, score, review_comments) VALUES (3, 3, '2021-06-01', 7, 'Needs improvement');
+INSERT INTO performance_review (id, employee_id, review_date, score, review_comments) VALUES (4, 3, '2021-05-01', 6, 'Needs improvement');
+INSERT INTO performance_review (id, employee_id, review_date, score, review_comments) VALUES (5, 3, '2021-04-01', 5, 'Needs improvement');
+INSERT INTO performance_review (id, employee_id, review_date, score, review_comments) VALUES (6, 3, '2021-03-01', 4, 'Needs improvement');
+INSERT INTO performance_review (id, employee_id, review_date, score, review_comments) VALUES (7, 3, '2021-02-01', 3, 'Needs improvement');
 
 -- Insert sample projects
 INSERT INTO project (id, name, start_date, end_date, department_id) VALUES (1, 'Project Alpha', '2021-01-01', '2021-12-31', 1);
